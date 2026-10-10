@@ -45,37 +45,35 @@ class RedisService:
     """Unified interface that works with both Redis and in-memory fallback."""
 
     async def get(self, key: str) -> Optional[str]:
-        if _use_in_memory:
-            item = _in_memory_store.get(key)
-            if item is None:
-                return None
-            if item["expiry"] and time.time() > item["expiry"]:
-                del _in_memory_store[key]
-                return None
-            return item["value"]
-        try:
-            if _redis_client is None:
-                return None
-            return await _redis_client.get(key)
-        except Exception:
+        if not _use_in_memory and _redis_client is not None:
+            try:
+                return await _redis_client.get(key)
+            except Exception:
+                pass
+
+        # In-memory fallback
+        item = _in_memory_store.get(key)
+        if item is None:
             return None
+        if item.get("expiry") and time.time() > item["expiry"]:
+            del _in_memory_store[key]
+            return None
+        return item.get("value")
 
     async def set_ex(self, key: str, ttl_seconds: int, value: str):
-        if _use_in_memory:
-            _in_memory_store[key] = {
-                "value": value,
-                "expiry": time.time() + ttl_seconds,
-            }
-            return
-        try:
-            if _redis_client is not None:
+        if not _use_in_memory and _redis_client is not None:
+            try:
                 await _redis_client.setex(key, ttl_seconds, value)
-        except Exception:
-            # Fallback to in-memory if Redis call fails
-            _in_memory_store[key] = {
-                "value": value,
-                "expiry": time.time() + ttl_seconds,
-            }
+                return
+            except Exception:
+                pass
+
+        # In-memory fallback
+        _in_memory_store[key] = {
+            "value": value,
+            "expiry": time.time() + ttl_seconds,
+        }
 
 
 redis_service = RedisService()
+

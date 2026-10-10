@@ -49,6 +49,15 @@ async def generate_vault_link(
     }
 
 
+def _ensure_utc(dt: Optional[datetime]) -> Optional[datetime]:
+    """Ensure a datetime is timezone-aware (UTC)."""
+    if dt is None:
+        return None
+    if dt.tzinfo is None:
+        return dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
 async def get_vault_file_info(vault_token: str, ip_address: str, user_agent: str) -> dict:
     """Get public file info by vault token."""
     projection = {
@@ -63,7 +72,8 @@ async def get_vault_file_info(vault_token: str, ip_address: str, user_agent: str
     if file_doc.get("isRevoked"):
         raise PermissionError("This link has been revoked")
 
-    if file_doc.get("expiresAt") and datetime.now(timezone.utc) > file_doc["expiresAt"].replace(tzinfo=timezone.utc) if file_doc["expiresAt"].tzinfo is None else file_doc["expiresAt"]:
+    expires_at = _ensure_utc(file_doc.get("expiresAt"))
+    if expires_at and datetime.now(timezone.utc) > expires_at:
         raise TimeoutError("This link has expired")
 
     if file_doc.get("downloadCount", 0) >= file_doc.get("downloadLimit", 5):
@@ -87,15 +97,6 @@ async def get_vault_file_info(vault_token: str, ip_address: str, user_agent: str
         "expiresAt": file_doc["expiresAt"].isoformat() if file_doc.get("expiresAt") else None,
         "remainingDownloads": file_doc["downloadLimit"] - file_doc["downloadCount"],
     }
-
-
-def _ensure_utc(dt: datetime) -> datetime:
-    """Ensure a datetime is timezone-aware (UTC)."""
-    if dt is None:
-        return None
-    if dt.tzinfo is None:
-        return dt.replace(tzinfo=timezone.utc)
-    return dt
 
 
 async def download_vault_file(vault_token: str, ip_address: str, user_agent: str) -> dict:

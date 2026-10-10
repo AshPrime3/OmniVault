@@ -14,4 +14,4 @@ backend/local-storage/
 client/dist/
 handbook/
 client/src/pages/prompt.txt
-
+.project-learning/

@@ -21,8 +21,9 @@ class Settings(BaseSettings):
     REDIS_URL: str = "redis://localhost:6379"
 
     # JWT
-    JWT_SECRET: str = "change_me_in_production"
+    JWT_SECRET: str = "change_me_in_production_omnivault_secret_key_32bytes"
     JWT_EXPIRES_IN: str = "7d"
+
 
     # AWS S3
     AWS_ACCESS_KEY_ID: Optional[str] = ""

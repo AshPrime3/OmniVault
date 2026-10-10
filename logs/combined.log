@@ -1,0 +1,47 @@
+{"timestamp":"2026-10-10T13:51:06","level":"INFO","message":"GET /api/health 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"MongoDB client created"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"New user registered: auth_edge_7032e376@example.com"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"POST /api/auth/register 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"POST /api/auth/register 400 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"POST /api/auth/login 401 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"GET /api/auth/me 401 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:07","level":"INFO","message":"MongoDB client created"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"New user registered: vault_limit_39bd9efe@example.com"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/auth/register 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File stored locally: /Users/apple/Documents/Omni_Python/local-storage/encrypted_6ac9f5749842107af86a3d9a_98020e97-eb09-4d56-b74e-798add82c82d"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File uploaded: secret.txt by user 6ac9f5749842107af86a3d9a"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/files/upload 201 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"Vault link generated for file: secret.txt"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/vault/6ac9f5749842107af86a3d9b/generate 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File downloaded via vault: secret.txt"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/vault/ebdb2ae8-751f-42b4-8291-971bc44fd147/download 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/vault/ebdb2ae8-751f-42b4-8291-971bc44fd147/download 403 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/vault/ebdb2ae8-751f-42b4-8291-971bc44fd147 403 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"MongoDB client created"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"New user registered: tester_ea94ebfd@example.com"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/auth/register 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/auth/me 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"WARNING","message":"GROQ_API_KEY not set — using rule-based fallback for security suggestion"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/ai/security-suggest 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"WARNING","message":"GROQ_API_KEY not set — using rule-based fallback for passphrase hint"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/ai/passphrase-hint 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File stored locally: /Users/apple/Documents/Omni_Python/local-storage/encrypted_6ac9f5749842107af86a3da0_7cf1be02-bfaf-4020-a463-1e93675597a3"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File uploaded: contract.pdf by user 6ac9f5749842107af86a3da0"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/files/upload 201 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/files 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"Vault link generated for file: contract.pdf"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/vault/6ac9f5749842107af86a3da1/generate 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/vault/d728abc9-2ad0-470f-b9cd-8ff2973b1504 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File downloaded via vault: contract.pdf"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/vault/d728abc9-2ad0-470f-b9cd-8ff2973b1504/download 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/vault/d728abc9-2ad0-470f-b9cd-8ff2973b1504 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/files/6ac9f5749842107af86a3da1/audit 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"Vault link revoked for file: contract.pdf"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"PATCH /api/files/6ac9f5749842107af86a3da1/revoke 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/vault/d728abc9-2ad0-470f-b9cd-8ff2973b1504 403 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File deleted from local storage: /Users/apple/Documents/Omni_Python/local-storage/encrypted_6ac9f5749842107af86a3da0_7cf1be02-bfaf-4020-a463-1e93675597a3"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"File deleted: contract.pdf by user 6ac9f5749842107af86a3da0"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"DELETE /api/files/6ac9f5749842107af86a3da1 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"User logged out: tester_ea94ebfd@example.com"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"POST /api/auth/logout 200 - 127.0.0.1"}
+{"timestamp":"2026-10-10T13:51:08","level":"INFO","message":"GET /api/auth/me 401 - 127.0.0.1"}
