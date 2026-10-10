@@ -1,8 +1,17 @@
 node_modules/
 .env
+.env.*
+!.env.example
 .DS_Store
-server/logs/
-server/local-storage/
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+backend/logs/
+backend/local-storage/
+client/dist/
 handbook/
 client/src/pages/prompt.txt
 

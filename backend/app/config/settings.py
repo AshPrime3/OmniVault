@@ -44,8 +44,9 @@ class Settings(BaseSettings):
         """Determine whether to use local filesystem instead of S3."""
         return (
             not self.AWS_ACCESS_KEY_ID
-            or self.AWS_ACCESS_KEY_ID == "your_aws_access_key"
-            or self.NODE_ENV == "development"
+            or self.AWS_ACCESS_KEY_ID.strip() in ("", "your_aws_access_key")
+            or not self.AWS_SECRET_ACCESS_KEY
+            or self.AWS_SECRET_ACCESS_KEY.strip() in ("", "your_aws_secret_key")
         )
 
     @property
